@@ -1,0 +1,47 @@
+﻿<Window x:Class="InventoryManagementSystem.ApplicationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InventoryManagementSystem"
+        xmlns:dash="clr-namespace:InventoryManagementSystem.Dashboard"
+        xmlns:contact="clr-namespace:InventoryManagementSystem.Contacts"
+        xmlns:invoice="clr-namespace:InventoryManagementSystem.Invoices"
+        xmlns:editContact="clr-namespace:InventoryManagementSystem.Contacts.Edit"
+        mc:Ignorable="d"
+        Title="Inventory Management System"  Width="1280" Height="720" WindowStartupLocation="CenterScreen">
+    
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type dash:DashboardViewModel}">
+            <dash:DashboardView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type contact:ContactsViewModel}">
+            <contact:ContactsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type invoice:InvoicesViewModel}">
+            <invoice:InvoicesView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type editContact:ContactsEditViewModel}">
+            <editContact:ContactsEditView />
+        </DataTemplate>
+    </Window.Resources>
+
+    <DockPanel>
+        <Border DockPanel.Dock="Left" BorderBrush="Black" BorderThickness="0,0,1,0" Width="230">
+            <ItemsControl ItemsSource="{Binding PageViewModels}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding Name}"
+                                Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                CommandParameter="{Binding }"
+                                Margin="2,5"
+                                Height="30"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+        <ScrollViewer>
+            <ContentControl Content="{Binding CurrentPageViewModel}" />
+        </ScrollViewer>
+    </DockPanel>
+</Window>

@@ -1,0 +1,170 @@
+﻿<UserControl x:Class="InventoryManagementSystem.Contacts.Edit.ContactsEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InventoryManagementSystem.Contacts.Edit"
+             xmlns:model="clr-namespace:InventoryManagementSystem.Contacts"
+             mc:Ignorable="d" 
+             Width="1050" d:DesignHeight="680">
+    <StackPanel Margin="20">
+        <Label FontSize="24">New Contact</Label>
+        <Grid Height="240" Width="600" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0"  Text="Primary Contact" VerticalAlignment="Center" Margin="5" />
+            <DockPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left">
+                <TextBox  Text="{Binding CurrentContact.Title}" Margin="5" Width="30" />
+                <TextBox  Text="{Binding CurrentContact.FirstName}" Margin="5" Width="150" />
+                <TextBox  Text="{Binding CurrentContact.LastName}" Margin="5" Width="150" />
+            </DockPanel>
+
+            <TextBlock Grid.Column="0" Grid.Row="1"  Text="Company Name" VerticalAlignment="Center" Margin="5" />
+            <TextBox Grid.Row="1" Grid.Column="1"  Text="{Binding CurrentContact.CompanyName}" Margin="5" Width="350" HorizontalAlignment="Left" />
+
+            <TextBlock Grid.Column="0" Grid.Row="2"  Text="Contact Display Name" VerticalAlignment="Center" Margin="5" />
+            <TextBox Grid.Row="2" Grid.Column="1"  Text="{Binding CurrentContact.ContactDisplayName}" Margin="5" Width="350" HorizontalAlignment="Left" />
+
+            <TextBlock Grid.Column="0" Grid.Row="3"  Text="Contact Email" VerticalAlignment="Center" Margin="5" />
+            <TextBox Grid.Row="3" Grid.Column="1"  Text="{Binding CurrentContact.Email}" Margin="5" Width="350" HorizontalAlignment="Left" />
+
+            <TextBlock Grid.Column="0" Grid.Row="4"  Text="Contact Phone" VerticalAlignment="Center" Margin="5" />
+            <DockPanel Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left">
+                <TextBox  Text="{Binding CurrentContact.WorkPhone}" Margin="5" Width="165" />
+                <TextBox  Text="{Binding CurrentContact.MobilePhone}" Margin="5" Width="165" />
+            </DockPanel>
+
+            <TextBlock Grid.Column="0" Grid.Row="5"  Text="Website" VerticalAlignment="Center" Margin="5" />
+            <TextBox Grid.Row="5" Grid.Column="1"  Text="{Binding CurrentContact.Website}" Margin="5" Width="350" HorizontalAlignment="Left" />
+
+            <TextBlock Grid.Column="0" Grid.Row="6"  Text="Contact Type" VerticalAlignment="Center" Margin="5" />
+            <TextBox Grid.Row="6" Grid.Column="1"  Text="{Binding CurrentContact.ContactTypeID}" Margin="5" Width="350" HorizontalAlignment="Left" />
+        </Grid>
+
+        <TabControl Width="600"  HorizontalAlignment="Left" >
+            <TabItem  Header="Tax &amp; Payment Details">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0"  Text="Currency" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="0" Grid.Column="1"  Text="{Binding CurrentContact.CurrencyTypeID}" Margin="5" Width="350" HorizontalAlignment="Left" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="1"  Text="Payment Terms" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="1" Grid.Column="1"  Text="{Binding CurrentContact.PaymentTermsTypeID}" Margin="5" Width="350" HorizontalAlignment="Left" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="2"  Text="Facebook" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="2" Grid.Column="1"  Text="{Binding CurrentContact.Facebook}" Margin="5" Width="350" HorizontalAlignment="Left" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="3"  Text="Twitter" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="3" Grid.Column="1"  Text="{Binding CurrentContact.Twitter}" Margin="5" Width="350" HorizontalAlignment="Left" />
+                </Grid>
+            </TabItem >
+            <TabItem  Header="Address">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0"  Text="Billing Address" VerticalAlignment="Center" Margin="5" />
+                    <TextBlock Grid.Column="2" Grid.Row="0"  Text="Shipping Address" VerticalAlignment="Center" Margin="5" />
+                    
+                    <TextBlock Grid.Column="0" Grid.Row="1"  Text="Name" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Column="1" Grid.Row="1"  Text="{Binding CurrentContact.BillingName}" Margin="5" Width="175" HorizontalAlignment="Left" />
+                    <TextBlock Grid.Column="2" Grid.Row="1"  Text="Name" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Column="3" Grid.Row="1"  Text="{Binding CurrentContact.ShippingName}" Margin="5" Width="175" HorizontalAlignment="Left" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="2"  Text="Address" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="2" Grid.Column="1"  Text="{Binding CurrentContact.BillingStreet1}" Margin="5" Width="175" HorizontalAlignment="Left" />
+                    <TextBlock Grid.Column="2" Grid.Row="2"  Text="Address" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="2" Grid.Column="3"  Text="{Binding CurrentContact.ShippingStreet1}" Margin="5" Width="175" HorizontalAlignment="Left" />
+                    
+                    <TextBlock Grid.Column="0" Grid.Row="3"  VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="3" Grid.Column="1"  Text="{Binding CurrentContact.BillingStreet2}" Margin="5" Width="175" HorizontalAlignment="Left" />
+                    <TextBlock Grid.Column="2" Grid.Row="3"  VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="3" Grid.Column="3"  Text="{Binding CurrentContact.ShippingStreet2}" Margin="5" Width="175" HorizontalAlignment="Left" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="4"  Text="City" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="4" Grid.Column="1"  Text="{Binding CurrentContact.BillingCity}" Margin="5" Width="175" HorizontalAlignment="Left" />
+                    <TextBlock Grid.Column="2" Grid.Row="4"  Text="City" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="4" Grid.Column="3"  Text="{Binding CurrentContact.ShippingCity}" Margin="5" Width="175" HorizontalAlignment="Left" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="5"  Text="State" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="5" Grid.Column="1"  Text="{Binding CurrentContact.BillingState}" Margin="5" Width="175" HorizontalAlignment="Left" />
+                    <TextBlock Grid.Column="2" Grid.Row="5"  Text="State" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="5" Grid.Column="3"  Text="{Binding CurrentContact.ShippingState}" Margin="5" Width="175" HorizontalAlignment="Left" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="6"  Text="Zip Code" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="6" Grid.Column="1"  Text="{Binding CurrentContact.BillingZipCode}" Margin="5" Width="175" HorizontalAlignment="Left" />
+                    <TextBlock Grid.Column="2" Grid.Row="6"  Text="Zip Code" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="6" Grid.Column="3"  Text="{Binding CurrentContact.ShippingZipCode}" Margin="5" Width="175" HorizontalAlignment="Left" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="7"  Text="Country" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="7" Grid.Column="1"  Text="{Binding CurrentContact.BillingCountry}" Margin="5" Width="175" HorizontalAlignment="Left" />
+                    <TextBlock Grid.Column="2" Grid.Row="7"  Text="Country" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="7" Grid.Column="3"  Text="{Binding CurrentContact.ShippingCountry}" Margin="5" Width="175" HorizontalAlignment="Left" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="8"  Text="Fax" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="8" Grid.Column="1"  Text="{Binding CurrentContact.BillingFax}" Margin="5" Width="175" HorizontalAlignment="Left" />
+                    <TextBlock Grid.Column="2" Grid.Row="8"  Text="Fax" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="8" Grid.Column="3"  Text="{Binding CurrentContact.ShippingFax}" Margin="5" Width="175" HorizontalAlignment="Left" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="9"  Text="Phone" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="9" Grid.Column="1"  Text="{Binding CurrentContact.BillingPhone}" Margin="5" Width="175" HorizontalAlignment="Left" />
+                    <TextBlock Grid.Column="2" Grid.Row="9"  Text="Phone" VerticalAlignment="Center" Margin="5" />
+                    <TextBox Grid.Row="9" Grid.Column="3"  Text="{Binding CurrentContact.ShippingPhone}" Margin="5" Width="175" HorizontalAlignment="Left" />
+                </Grid>
+            </TabItem >
+            <TabItem  Header="Custom Fields">
+                <TextBlock>Start adding custom fields for your contacts by going to More Settings  Preferences  Contacts. 
+                    You can add as many as Ten extra fields, as well as refine the address format of your contacts from there.</TextBlock>
+            </TabItem >
+            <TabItem  Header="Notes">
+                <StackPanel>
+                    <TextBlock>Notes (For Internal Use)</TextBlock>
+                    <TextBox Text="{Binding CurrentContact.Notes}" Margin="5" Height="120"></TextBox>
+                </StackPanel>
+            </TabItem >
+        </TabControl>
+
+        <DockPanel>
+            <Button Content="Save" Command="{Binding Path=SaveContactCommand}" Margin="10" HorizontalAlignment="Left" />
+            <Button Content="Cancel" Command="{Binding Path=GoBack}" Margin="10" HorizontalAlignment="Left" />
+        </DockPanel>
+    </StackPanel>
+</UserControl>
